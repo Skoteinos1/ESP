@@ -11,7 +11,7 @@ import playsound
 show_picture = True
 show_picked_color = False
 show_picture = False   # Do you want to see picture from Pics folder on correct guess?
-show_picked_color = True   # For testing only. It prints chosen color.
+# show_picked_color = True   # For testing only. It prints chosen color.
 
 vysledky = ''
 guess = ''

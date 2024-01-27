@@ -1,4 +1,4 @@
-# Test and train your 6th sense (Extrasensory perception (ESP))
+# Test and train your ESP (Extrasensory perception)
 
 ![ESP app form](https://github.com/Skoteinos1/ESP/blob/main/Pics/esp.jpg)
 
@@ -13,9 +13,11 @@ You will get 1 point for correct guess and 0.5 if second guess is correct. Pick 
 
 Anyone can do it. DO NOT TRY TO FORCE IT. Because you brain will give you something on random. Point of this training is to learn how to distiguish your inner voices. One which gives you something on random and one which is your ESP.
 
-How to interpret your results:
+How to interpret your results:<br>
 15+ - The force is strong with this one.<br>
-12  - If you can achieve this score consistently, CIA has job for you.
- 9  - Very good young padawan.
- 6  - Yeah, everybody can achieve this by chance.
+12  - If you can achieve this score consistently, CIA has job for you.<br>
+ 9  - Very good young padawan.<br>
+ 6  - Yeah, everybody can achieve this by chance.<br>
  3> - There is a secret trick to get better, just click on Red 24x.
+
+ After test is done, results are stored in the file.
