@@ -1,6 +1,6 @@
 from tkinter import *
 from PIL import ImageTk, Image
-from tkinter import ttk
+# from tkinter import ttk
 import datetime
 import random
 import time
@@ -10,8 +10,8 @@ import playsound
 
 show_picture = True
 show_picked_color = False
-show_picture = False
-# show_picked_color = True
+show_picture = False   # Do you want to see picture from Pics folder on correct guess?
+show_picked_color = True   # For testing only. It prints chosen color.
 
 vysledky = ''
 guess = ''
@@ -35,6 +35,10 @@ picked_color = ''
 good = 0
 bad = 0
 col_dic = {'red': [r_btn, r1, r2], 'blue': [b_btn, b1, b2], 'green': [g_btn, g1, g2], 'yellow': [y_btn, y1, y2]}
+
+
+def chime():
+    playsound.playsound('chime.mp3')
 
 
 def my_choice(clr):
@@ -67,7 +71,8 @@ def my_choice(clr):
     elif clr == picked_color:
         # print('match', picked_color)
         # btn_change_clr(picked_color)
-        playsound.playsound('chime.mp3')
+        threads = [(Thread(target=chime))]
+        threads[-1].start()
         threads = [(Thread(target=btn_change_clr, args=(picked_color, True,)))]
         threads[-1].start()
         good += 1
@@ -124,11 +129,11 @@ def btn_change_clr(clr, spravny):
 
     if spravny and show_picture:
         img = Image.open(pick_img())
-        img = img.resize((175, 175), Image.ANTIALIAS)
+        img = img.resize((175, 220), Image.ANTIALIAS)
         photo = ImageTk.PhotoImage(img)
         # photo = PhotoImage(file="img.png")  # , height=130, width=130
         # photo.config(height=155, width=175)
-        col_dic[clr][0].config(image=photo, height=155, width=175)  #
+        col_dic[clr][0].config(image=photo, height=175, width=220)  #
         time.sleep(4)
         col_dic[clr][0].config(image='', height=10, width=25)  #
     else:
@@ -149,11 +154,11 @@ def ml():
     global col_dic
     global text_note
     global sg
-    clr_bgr = '#2b2b2b'
+    clr_bgr = '#2b2b2b'  # Form background
     clr_fgr = '#a9b7c6'  # '#bbbbbb' #a9b7c6 '#cfcfcf'
     clr_frm_header = '#ccff00'
-    clr_d_bgr = '#3b3b3b'
-    clr_d_fgr = '#cfcfcf'  # '#818181'
+    # clr_d_bgr = '#3b3b3b'
+    # clr_d_fgr = '#cfcfcf'  # '#818181'
     clr_btn_bgr = '#365880'  # 'gray'
     clr_btn_fgr = 'white'
 
@@ -163,7 +168,6 @@ def ml():
     # window.configure(background='#2b2b2b')
     # window.geometry('620x620')
     window.tk_setPalette(background=clr_bgr, foreground=clr_fgr, activeBackground=clr_bgr, activeForeground=clr_fgr)
-
 
     spec_frame = Frame(window, bd=2, relief=GROOVE)  # text="Options: ", padding="9 9 12 12"
     spec_frame.grid(row=0, column=0, sticky=(N, W, E, S))
